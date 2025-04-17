@@ -7,18 +7,15 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { dark } from "@clerk/themes";
+import AnimatedBackground from "@/components/gradients/AnimatedBackground";
+import { Poppins } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  weight: ["400", "700"],
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -37,10 +34,12 @@ export default function RootLayout({
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
+        <body className={`${poppins.variable} ${poppins.variable} antialiased`}>
+          <div className="absolute inset-0 z-0">
+            <AnimatedBackground />
+          </div>
+
+          <header className="flex justify-end items-center p-4 gap-4 h-16 z-10 relative">
             <SignedOut>
               <SignInButton />
               <SignUpButton />
