@@ -87,3 +87,52 @@ username: test-user
 email: test@kraftedy.com
 password: thisIsForTesting
 ```
+
+## Auth Flow
+
+![Auth flow](./public/diagram.png)
+
+### 1. Sign Up Flow
+
+When a user clicks the "Sign Up" button, they are redirected to Clerk's modal or page for sign-up. Once the user successfully registers:
+
+- Clerk creates a user profile and sends a confirmation email.
+
+- After confirming their email, the user is granted access to the app.
+
+- The user is redirected to the Dashboard page that they were trying to access before signing up.
+
+### 2. Sign In Flow
+
+When a user clicks the "Sign In" button, they are redirected to Clerk’s modal or page for sign-in. Upon successful authentication, the following occurs:
+
+- Clerk verifies the user's credentials.
+
+- The user is granted access to the app and is redirected to the Dashboard or their desired page.
+
+### 3. Authentication Check on Dashboard Page
+
+To ensure only authenticated users can access the Dashboard page, authentication checks are implemented. These checks are done both on the server-side and client-side:
+
+- Server-side Authentication Check:
+  The auth function from Clerk is used in API routes or server-side functions to verify if a user is authenticated.
+
+If the user is not authenticated, they are redirected to the Sign-In page.
+
+- Client-side Authentication Check:
+  On the client side, SignedIn and SignedOut components from Clerk are used to conditionally render content based on whether the user is authenticated.
+
+These components automatically handle redirection and showing appropriate content.
+
+## Prompts used
+
+Prompt 1: How can I implement route protection with Clerk to ensure users are redirected to the sign-in page if they are not authenticated?
+
+Prompt 2: How do I check for authentication on protected pages?
+
+Prompt 3: What is the use of the following- NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL,
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL
+
+Prompt 4: What does the error 'URL is malformed' mean when using Clerk in Next.js?
+
+Prompt 5: How can I customize the redirect URL for a sign-in or sign-up button in Clerk in my Next.js app?
