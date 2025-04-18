@@ -1,3 +1,4 @@
+import Dashboard from "@/components/Dashboard";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -5,7 +6,6 @@ export default async function Home() {
   const { userId } = await auth();
   if (!userId) {
     return redirect("/sign-in");
-  } else {
-    return redirect("/dashboard");
   }
+  return <Dashboard />;
 }

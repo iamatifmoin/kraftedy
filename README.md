@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KraftedY
 
-## Getting Started
+## Directory Structure
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+├── src
+│   ├── app
+│   │   ├── (auth)
+│   │   │   ├── sign-in
+│   │   │   │   └── [[...sign-in]]
+│   │   │   ├── sign-up
+│   │   │   │   └── [[...sign-up]]
+│   │   ├── (protected)
+│   │   │   │   └── dashboard
+│   ├── components
+│   │   └── gradients
+│   │   |       └── AnimatedBackground.tsx
+│   │   └── ui
+│   │   |    └── Spinner.tsx
+│   │   ├── AuthHeader.tsx
+│   │   ├── Dashboard.tsx
+│   ├── middleware.ts
+├── .env.local
+├── next.config.js
+├── package.json
+├── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Steps to Install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/iamatifmoin/kraftedy.git
+   cd kraftedy
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install the dependencies:
+   Using npm:
+   ```bash
+   npm install
+   ```
+   Or using Yarn:
+   ```bash
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the Development Server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To run the application locally:
 
-## Deploy on Vercel
+1. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   Or with Yarn:
+
+   ```bash
+   yarn dev
+   ```
+
+2. Visit `http://localhost:3000` in your browser to access the application.
+
+## Environment Variables
+
+Create a `.env.local` file in the root of the project and add the following variables:
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-publishable-key>
+CLERK_SECRET_KEY=<your-clerk-secret-key>
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/dashboard
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/dashboard
+```
+
+Replace `<your-clerk-publishable-key>` and `<your-clerk-secret-key>` with the appropriate values from your Clerk dashboard.
+
+## Test Credentials
+
+```
+username: test-user
+email: test@kraftedy.com
+password: thisIsForTesting
+```

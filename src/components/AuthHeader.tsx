@@ -18,7 +18,7 @@ export default function AuthHeader() {
   return (
     <header className="flex justify-between items-center p-4 h-20">
       <Link
-        href="/"
+        href="/dashboard"
         className="text-4xl font-bold text-white tracking-wide cursor-pointer"
       >
         KraftedY
