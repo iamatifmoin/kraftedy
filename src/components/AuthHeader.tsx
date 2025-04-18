@@ -17,7 +17,12 @@ export default function AuthHeader() {
 
   return (
     <header className="flex justify-between items-center p-4 h-20">
-      <h1 className="text-4xl font-bold text-white tracking-wide">KraftedY</h1>
+      <Link
+        href="/"
+        className="text-4xl font-bold text-white tracking-wide cursor-pointer"
+      >
+        KraftedY
+      </Link>
       <div className="flex items-center gap-4">
         <SignedOut>
           {!isSignUpPage && (
