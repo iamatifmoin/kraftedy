@@ -1,14 +1,7 @@
-// components/AuthHeader.tsx
 "use client";
 
-import {
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function AuthHeader() {
@@ -28,14 +21,14 @@ export default function AuthHeader() {
       <div className="flex items-center gap-4">
         <SignedOut>
           {!isSignUpPage && (
-            <SignUpButton mode="modal">
-              <div className={glassButtonStyle}>Sign Up</div>
-            </SignUpButton>
+            <Link href="/sign-up" className={glassButtonStyle}>
+              Sign Up
+            </Link>
           )}
           {!isSignInPage && (
-            <SignInButton mode="modal">
-              <div className={glassButtonStyle}>Sign In</div>
-            </SignInButton>
+            <Link href="/sign-in" className={glassButtonStyle}>
+              Sign In
+            </Link>
           )}
         </SignedOut>
         <SignedIn>
