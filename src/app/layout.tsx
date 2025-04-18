@@ -1,16 +1,11 @@
+// app/layout.tsx
 import { type Metadata } from "next";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
-import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import AnimatedBackground from "@/components/gradients/AnimatedBackground";
 import { Poppins } from "next/font/google";
 import { dark } from "@clerk/themes";
+import "./globals.css";
+import AuthHeader from "@/components/AuthHeader";
 
 const poppins = Poppins({
   weight: ["400", "700"],
@@ -25,9 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider
       appearance={{ baseTheme: dark }}
@@ -40,16 +33,7 @@ export default function RootLayout({
           </div>
 
           <div className="relative z-20">
-            <header className="flex justify-end items-center p-4 gap-4 h-16">
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </header>
-
+            <AuthHeader />
             <main>{children}</main>
           </div>
         </body>
